@@ -1,0 +1,92 @@
+Calculating task graph as configuration cache cannot be reused because environment variable 'CI' has changed.
+Type-safe project accessors is an incubating feature.
+> Task :server:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :shared:kmpPartiallyResolvedDependenciesChecker
+> Task :shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :shared:jvmProcessResources NO-SOURCE
+> Task :shared:processJvmMainResources SKIPPED
+> Task :server:processResources UP-TO-DATE
+> Task :shared:compileKotlinJvm UP-TO-DATE
+> Task :shared:compileJvmMainJava NO-SOURCE
+> Task :shared:jvmMainClasses UP-TO-DATE
+> Task :shared:jvmJar UP-TO-DATE
+> Task :server:compileKotlin UP-TO-DATE
+> Task :server:compileJava NO-SOURCE
+> Task :server:classes UP-TO-DATE
+
+> Task :server:run
+2025-11-01 17:35:42.800 [main] INFO  io.ktor.server.Application - Autoreload is disabled because the development mode is off.
+2025-11-01 17:35:42.829 [main] INFO  io.ktor.server.Application - Application started in 0.096 seconds.
+Exception in thread "main" java.net.BindException: Address already in use
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:565)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:344)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at io.netty.channel.socket.nio.NioServerSocketChannel.doBind(NioServerSocketChannel.java:148)
+	at io.netty.channel.AbstractChannel$AbstractUnsafe.bind(AbstractChannel.java:434)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.bind(DefaultChannelPipeline.java:1353)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeBind(AbstractChannelHandlerContext.java:492)
+	at io.netty.channel.AbstractChannelHandlerContext.bind(AbstractChannelHandlerContext.java:471)
+	at io.netty.channel.DefaultChannelPipeline.bind(DefaultChannelPipeline.java:994)
+	at io.netty.channel.Channel.bind(Channel.java:302)
+	at io.netty.bootstrap.AbstractBootstrap$2.run(AbstractBootstrap.java:380)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:148)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:141)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:535)
+	at io.netty.channel.SingleThreadIoEventLoop.run(SingleThreadIoEventLoop.java:201)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:1193)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+	Suppressed: java.util.concurrent.CompletionException: Rethrowing promise failure cause
+		at io.netty.util.concurrent.DefaultPromise.rethrowIfFailed(DefaultPromise.java:685)
+		at io.netty.util.concurrent.DefaultPromise.sync(DefaultPromise.java:419)
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:119)
+		at io.netty.channel.DefaultChannelPromise.sync(DefaultChannelPromise.java:30)
+		at io.ktor.server.netty.NettyApplicationEngine.start(NettyApplicationEngine.kt:254)
+		at io.ktor.server.netty.NettyApplicationEngine.start(NettyApplicationEngine.kt:38)
+		at io.ktor.server.engine.EmbeddedServer.start(EmbeddedServerJvm.kt:335)
+		at com.jini.caratized.ApplicationKt.main(Application.kt:11)
+		at com.jini.caratized.ApplicationKt.main(Application.kt)
+
+> Task :server:run FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':server:run'.
+> Process 'command '/Users/snapmint/.sdkman/candidates/java/21.0.8-amzn/bin/java'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7s
+6 actionable tasks: 2 executed, 4 up-to-date
+Configuration cache entry stored.
+Exception in thread "Thread-0" org.gradle.api.UncheckedIOException: java.io.IOException: Input/output error
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:63)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:42)
+	at org.gradle.internal.daemon.client.clientinput.DaemonClientInputForwarder$ForwardingUserInput.lambda$readAndForwardStdin$0(DaemonClientInputForwarder.java:99)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: Input/output error
+	at java.base/java.io.FileInputStream.readBytes(Native Method)
+	at java.base/java.io.FileInputStream.read(FileInputStream.java:287)
+	at java.base/java.io.BufferedInputStream.read1(BufferedInputStream.java:345)
+	at java.base/java.io.BufferedInputStream.implRead(BufferedInputStream.java:420)
+	at java.base/java.io.BufferedInputStream.read(BufferedInputStream.java:399)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:350)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:393)
+	at java.base/sun.nio.cs.StreamDecoder.lockedRead(StreamDecoder.java:217)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:171)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:188)
+	at java.base/java.io.BufferedReader.read1(BufferedReader.java:223)
+	at java.base/java.io.BufferedReader.implRead(BufferedReader.java:314)
+	at java.base/java.io.BufferedReader.read(BufferedReader.java:296)
+	at java.base/java.io.Reader.read(Reader.java:265)
+	at org.gradle.internal.daemon.client.clientinput.DaemonClientInputForwarder$ForwardingUserInput.lambda$readAndForwardStdin$0(DaemonClientInputForwarder.java:97)
+	... 3 more
